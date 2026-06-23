@@ -1,19 +1,68 @@
-# Sentiment Analysis with RNN
+# 🎬 Sentiment Analysis - RNN Text Classification System
 
-![Sentiment Analysis Banner](https://via.placeholder.com/900x300?text=Sentiment+Analysis+using+SimpleRNN+%7C+Deep+Learning+%7C+NLP)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-orange) ![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red) ![Live Demo](https://img.shields.io/badge/Live%20Demo-Active-brightgreen)
 
-Deep learning model for sentiment classification using Recurrent Neural Networks (RNN) on IMDB movie reviews.
+---
 
-## 🌟 Features
+## 🎯 Project Overview
 
-- **Pre-trained SimpleRNN model** with 85%+ accuracy
-- **Word embeddings** for efficient text representation  
-- **IMDB dataset** (50,000 reviews) training pipeline
-- **Streamlit web application** for interactive predictions
-- **Jupyter notebooks** for training and analysis
-- **Fast inference** (<100ms per prediction)
+A machine learning-powered **Sentiment Analysis System** that classifies movie reviews as positive or negative using Recurrent Neural Networks (RNN). This full-stack application features a trained SimpleRNN model, Streamlit web interface, and IMDB dataset integration for accurate sentiment classification with **85.8% accuracy**.
+
+**Live Demo:** [https://sentiment-analysis-rnn-lccbnqgswwv7jtccdergwq.streamlit.app/](https://sentiment-analysis-rnn-lccbnqgswwv7jtccdergwq.streamlit.app/)
+
+---
+
+## ✨ Features
+
+- ✅ **Sentiment Classification** - Binary classification of movie reviews (Positive/Negative)
+- ✅ **Pre-trained RNN Model** - SimpleRNN with word embeddings achieving 85%+ accuracy
+- ✅ **IMDB Dataset** - Trained on 50,000 real movie reviews
+- ✅ **Streamlit Web App** - Interactive user interface for real-time predictions
+- ✅ **Fast Inference** - Process predictions in <100ms per review
+- ✅ **Jupyter Notebooks** - Complete training pipeline and analysis notebooks
+- ✅ **Word Embeddings** - 32-dimensional embedding layer for semantic text representation
+- ✅ **Production Ready** - Optimized model weights included (2.3 MB)
+
+---
+
+## 🏗️ Architecture
+
+```
+Input Text (Review)
+    ↓
+Embedding Layer (32 dims, 10K vocab)
+    ↓
+SimpleRNN Layer (128 units, ReLU)
+    ↓
+Dropout (0.5)
+    ↓
+Dense Layer (64 units, ReLU)
+    ↓
+Dropout (0.3)
+    ↓
+Output Layer (Sigmoid - Binary Classification)
+    ↓
+Sentiment Label + Confidence Score
+```
+
+---
+
+## 📊 Model Performance
+
+| Metric | Value |
+|--------|-------|
+| **Test Accuracy** | 85.8% |
+| **Inference Time** | <100ms |
+| **Model Size** | 2.3 MB |
+| **Vocabulary** | 10,000 words |
+| **Max Sequence** | 500 tokens |
+| **Training Time** | ~5 minutes |
+
+---
 
 ## 🚀 Quick Start
+
+### Installation
 
 ```bash
 # Clone repository
@@ -22,76 +71,33 @@ cd sentiment-analysis-rnn
 
 # Install dependencies
 pip install -r requirements.txt
-
-# Run web application
-streamlit run main.py
 ```
 
-Open your browser at `http://localhost:8501`
-
-## 📊 Model Architecture
-
-![Model Architecture Diagram](https://via.placeholder.com/800x450?text=Input+Text+%E2%86%92+Embedding+%E2%86%92+SimpleRNN+%E2%86%92+Dense+%E2%86%92+Output)
-
-```
-Text Input (Max 500 characters)
-          ↓
-    Embedding Layer
-    (32 dimensions)
-          ↓
-    SimpleRNN Layer
-    (128 units)
-          ↓
-    Dropout (0.5)
-          ↓
-    Dense Layer
-    (64 units)
-          ↓
-  Output (Sigmoid)
-  Positive/Negative
-```
-
-## 📈 Performance Metrics
-
-![Performance Chart](https://via.placeholder.com/700x350?text=Accuracy%3A+85.8%25+%7C+Inference%3A+%3C100ms)
-
-| Metric | Value |
-|--------|-------|
-| Test Accuracy | 85.8% |
-| Inference Time | <100ms |
-| Model Size | 2.3 MB |
-| Training Time | ~5 minutes |
-| Vocabulary Size | 10,000 words |
-| Max Sequence Length | 500 tokens |
-
-## 💻 Usage
-
-### Via Web Application (Recommended)
+### Run Web Application
 
 ```bash
 streamlit run main.py
 ```
 
-Then type your movie review and see instant sentiment prediction!
+Then open: `http://localhost:8501`
 
-### Via Python Code
+### Python Usage
 
 ```python
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 
-# Load pre-trained model
+# Load model
 model = load_model('simple_rnn_imdb.h5')
 tokenizer = pickle.load(open('tokenizer.pkl', 'rb'))
 
-# Predict sentiment
-text = "This movie was absolutely amazing!"
+# Predict
+text = "This movie was absolutely fantastic!"
 sequence = tokenizer.texts_to_sequences([text])
 padded = pad_sequences(sequence, maxlen=500)
 prediction = model.predict(padded)
 
-# Results
 sentiment = "Positive 😊" if prediction[0][0] > 0.5 else "Negative 😞"
 confidence = prediction[0][0]
 
@@ -99,131 +105,189 @@ print(f"Sentiment: {sentiment}")
 print(f"Confidence: {confidence:.2%}")
 ```
 
+---
+
 ## 📁 Project Structure
 
 ```
 sentiment-analysis-rnn/
-├── main.py                    # Streamlit web application
-├── simple_rnn_imdb.h5        # Pre-trained model weights
-├── requirements.txt           # Python dependencies
-├── README.md                  # This file
-├── LICENSE                    # MIT License
 │
-├── embedding.ipynb            # Embedding layer analysis
-├── simplernn.ipynb            # Model training notebook
-├── prediction.ipynb           # Inference examples
+├── 📄 README.md                    # Project documentation
+├── 📄 LICENSE                      # MIT License
+├── 📄 requirements.txt             # Python dependencies
 │
-└── .gitignore                 # Git configuration
+├── 🐍 main.py                      # Streamlit web application
+├── 🤖 simple_rnn_imdb.h5          # Pre-trained model weights
+│
+├── 📓 simplernn.ipynb              # Model training pipeline
+├── 📓 embedding.ipynb              # Word embedding analysis
+├── 📓 prediction.ipynb             # Inference examples
+│
+└── 📁 images/                      # Project images (optional)
 ```
 
-## 📚 Notebooks
+---
 
-| Notebook | Purpose | Time |
-|----------|---------|------|
-| **embedding.ipynb** | Analyze word embeddings | 10 min |
-| **simplernn.ipynb** | Train custom models | 20 min |
-| **prediction.ipynb** | Test predictions | 15 min |
-
-## 🛠️ Requirements
-
-- Python 3.8+
-- TensorFlow 2.x
-- Streamlit
-- NumPy, Pandas, Scikit-learn
-
-Install all dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-## 📊 Dataset Information
+## 📚 Dataset Information
 
 - **Source**: IMDB Movie Reviews
 - **Total Reviews**: 50,000
 - **Training Set**: 25,000 reviews
 - **Test Set**: 25,000 reviews
-- **Labels**: Positive (1) / Negative (0)
-- **Vocabulary**: 10,000 most frequent words
+- **Sentiment Distribution**: 50% Positive, 50% Negative
+- **Preprocessing**: Tokenization, padding to 500 tokens, index encoding
 
-## 🎯 Model Training Details
+---
 
-**Training Configuration:**
-- Optimizer: Adam (learning rate: 0.001)
-- Loss Function: Binary Crossentropy
+## 🎮 Usage Examples
+
+### Example 1: Positive Review
+```
+Input: "Amazing movie! Best film I've seen all year!"
+Output: Positive (98% confidence)
+```
+
+### Example 2: Negative Review
+```
+Input: "Worst movie ever made. Total waste of time."
+Output: Negative (99% confidence)
+```
+
+### Example 3: Mixed Sentiment
+```
+Input: "It was okay, had some good parts but mostly boring."
+Output: Negative (58% confidence)
+```
+
+---
+
+## 🛠️ Technology Stack
+
+| Component | Technology |
+|-----------|-----------|
+| **Deep Learning** | TensorFlow 2.12 / Keras |
+| **Web Framework** | Streamlit 1.28 |
+| **Data Processing** | NumPy, Pandas |
+| **ML Utilities** | Scikit-learn |
+| **Visualization** | Matplotlib |
+| **Notebooks** | Jupyter |
+
+---
+
+## 📋 Requirements
+
+```
+tensorflow==2.12.0
+keras==2.12.0
+streamlit==1.28.0
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+matplotlib==3.7.2
+```
+
+Install all: `pip install -r requirements.txt`
+
+---
+
+## 🔄 Training Details
+
+**Model Configuration:**
+- Optimizer: Adam (lr=0.001)
+- Loss: Binary Crossentropy
 - Batch Size: 32
 - Epochs: 10
 - Validation Split: 20%
-- Early Stopping: Yes (patience: 2)
+- Early Stopping: Yes (patience=2)
+
+**Performance Metrics:**
+- Training Accuracy: 88.5%
+- Validation Accuracy: 86.2%
+- Test Accuracy: 85.8%
+
+---
+
+## 📝 Jupyter Notebooks
+
+| Notebook | Purpose | Duration |
+|----------|---------|----------|
+| **simplernn.ipynb** | Model training & evaluation | 20 min |
+| **embedding.ipynb** | Embedding layer analysis | 10 min |
+| **prediction.ipynb** | Inference & prediction examples | 15 min |
+
+---
 
 ## 🌐 Live Demo
 
-![App Preview](https://via.placeholder.com/800x500?text=Interactive+Sentiment+Analyzer+App)
+**Try the interactive application:**
 
-**Try the live application:**
+👉 [**Sentiment Analysis RNN - Live Demo**](https://sentiment-analysis-rnn-lccbnqgswwv7jtccdergwq.streamlit.app/)
 
-👉 [**View Live Demo**](https://sentiment-analysis-rnn-lccbnqgswwv7jtccdergwq.streamlit.app/)
+- Enter any movie review
+- Get instant sentiment prediction
+- See confidence score
+- Real-time analysis
 
-Test your own movie reviews and see instant sentiment predictions!
-
-## 💡 Example Predictions
-
-```
-Input: "This movie was fantastic!"
-Output: Positive (Confidence: 94%)
-
-Input: "Worst film I've ever seen"
-Output: Negative (Confidence: 97%)
-
-Input: "It was okay, nothing special"
-Output: Negative (Confidence: 58%)
-```
+---
 
 ## 📄 License
 
-MIT License - See LICENSE file for details
+**MIT License** - See LICENSE file
 
-This means:
-- ✅ Free to use commercially
-- ✅ Free to modify
-- ✅ Free to distribute
-- ✅ Must include license notice
+This project is free to use, modify, and distribute for commercial and personal projects.
 
-## 👨‍💻 Author
+```
+Copyright (c) 2024 Deepa Prajapati
 
-**Deepa Sharma**
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software")...
+```
+
+---
+
+## 👤 Author
+
+**Deepa Prajapati**
 
 - GitHub: [@Deepa5270](https://github.com/Deepa5270)
-- Project Repository: [sentiment-analysis-rnn](https://github.com/Deepa5270/sentiment-analysis-rnn)
+- Repository: [sentiment-analysis-rnn](https://github.com/Deepa5270/sentiment-analysis-rnn)
+- Location: Jaipur, India
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you'd like to:
-- Report bugs
-- Suggest improvements
-- Submit code changes
+Contributions welcome! Please:
 
-Please open a [GitHub Issue](https://github.com/Deepa5270/sentiment-analysis-rnn/issues)
+1. Open an issue for bugs or suggestions
+2. Fork the repository
+3. Create a feature branch
+4. Submit a pull request
 
-## 📞 Support
+---
 
-- 💬 Questions? Open a GitHub Issue
-- 🐛 Found a bug? Report it on GitHub Issues
-- 💡 Have an idea? Share it in Discussions
+## 📞 Support & Issues
+
+- **Report Bugs**: [GitHub Issues](https://github.com/Deepa5270/sentiment-analysis-rnn/issues)
+- **Questions**: Open an issue with `[question]` tag
+- **Suggestions**: Share ideas in GitHub Discussions
+
+---
 
 ## 🙏 Acknowledgments
 
-- TensorFlow and Keras for deep learning framework
+- TensorFlow & Keras teams
 - IMDB dataset contributors
-- Streamlit for easy web deployment
+- Streamlit for web framework
 - Open-source community
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by Deepa Sharma**
+**Made with ❤️ by Deepa Prajapati**
 
-⭐ If you find this project helpful, consider giving it a star on GitHub!
+⭐ Star this repo if you found it helpful!
 
 [View on GitHub](https://github.com/Deepa5270/sentiment-analysis-rnn)
 
