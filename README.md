@@ -249,43 +249,13 @@ of this software and associated documentation files (the "Software")...
 
 **Deepa Prajapati**
 
-- GitHub: [@Deepa5270](https://github.com/Deepa5270)
-- Repository: [sentiment-analysis-rnn](https://github.com/Deepa5270/sentiment-analysis-rnn)
-- Location: Jaipur, India
+**Deepa Prajapati**
+
+- 📧 Email: deepa7932praj@gmail.com
+- 🔗 GitHub: [@Deepa5270](https://github.com/Deepa5270)
+- 💼 LinkedIn: [Deepa Prajapati ](https://www.linkedin.com/in/deepa-prajapati-b16014345)
 
 ---
-
-## 🤝 Contributing
-
-Contributions welcome! Please:
-
-1. Open an issue for bugs or suggestions
-2. Fork the repository
-3. Create a feature branch
-4. Submit a pull request
-
----
-
-## 📞 Support & Issues
-
-- **Report Bugs**: [GitHub Issues](https://github.com/Deepa5270/sentiment-analysis-rnn/issues)
-- **Questions**: Open an issue with `[question]` tag
-- **Suggestions**: Share ideas in GitHub Discussions
-
----
-
-## 🙏 Acknowledgments
-
-- TensorFlow & Keras teams
-- IMDB dataset contributors
-- Streamlit for web framework
-- Open-source community
-
----
-
-<div align="center">
-
-**Made with ❤️ by Deepa Prajapati**
 
 ⭐ Star this repo if you found it helpful!
 
