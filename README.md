@@ -249,8 +249,6 @@ of this software and associated documentation files (the "Software")...
 
 **Deepa Prajapati**
 
-**Deepa Prajapati**
-
 - 📧 Email: deepa7932praj@gmail.com
 - 🔗 GitHub: [@Deepa5270](https://github.com/Deepa5270)
 - 💼 LinkedIn: [Deepa Prajapati ](https://www.linkedin.com/in/deepa-prajapati-b16014345)
